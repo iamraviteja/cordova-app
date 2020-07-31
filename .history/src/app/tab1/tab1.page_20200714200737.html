@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-button expand="block" (click)="onDownloadExternal()">Download File (External)</ion-button>
+  <ion-button expand="block" (click)="onDownloadData()">Download File (Data)</ion-button>
+  <div>
+    <div>Data Directory</div>
+    <div>{{this.file.dataDirectory}}</div>
+    <div>External Directory</div>
+    <div>{{this.file.externalDataDirectory}}</div>
+    <div>External Root Directory</div>
+    <div>{{this.file.externalRootDirectory}}</div>
+  </div>
+</ion-content>
