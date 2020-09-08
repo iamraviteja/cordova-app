@@ -9,12 +9,6 @@ import { File } from '@ionic-native/file/ngx';
 import { Diagnostic } from '@ionic-native/diagnostic/ngx';
 import { PDFGenerator } from '@ionic-native/pdf-generator/ngx';
 
-import { ToastService } from 'shared/services/toast/toast.service';
-import { AlertProvider } from 'providers/alert-provider';
-import { Messages } from 'shared/services/toast/messages';
-import { resolve } from 'dns';
-import { reject } from 'lodash';
-
 @Injectable()
 export class DownloadService {
 
@@ -28,8 +22,6 @@ export class DownloadService {
   };
 
   constructor(
-    private alertProvider: AlertProvider,
-    private toastService: ToastService,
     private diagnostic: Diagnostic,
     private transfer: FileTransfer,
     public file: File,
@@ -243,7 +235,6 @@ private savebase64AsPDF(folderpath, filename, content, contentType, resolve, rej
         }
       }
     } catch (error) {
-      this.alertProvider.alertError(error, 'Error:');
       writeError.message = error.message;
       return Promise.reject(writeError);
     }

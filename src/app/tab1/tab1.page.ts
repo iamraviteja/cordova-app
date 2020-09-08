@@ -5,6 +5,8 @@ import { Diagnostic } from '@ionic-native/diagnostic/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { DownloadService } from '../shared/common/download.service';
+import { getLocaleEraNames } from '@angular/common';
 
 
 @Component({
@@ -28,7 +30,8 @@ export class Tab1Page implements AfterViewInit {
     private diagnostic: Diagnostic,
     private emailComposer: EmailComposer,
     private transfer: FileTransfer,
-    public file: File
+    public file: File,
+    public downloadService:DownloadService
   ) {}
 
   ngAfterViewInit(): void {
@@ -185,6 +188,16 @@ export class Tab1Page implements AfterViewInit {
     const message = `${key} :: ${msg}`;
     this.presentToast(message);
     this.logs.push(message);
+  }
+
+  /**
+   * onGenerateClicked
+   */
+  public onGenerateClicked() {
+    this.downloadService.onDownloadClicked(
+      'Privacy-Statement_tcm145-107975',
+      `Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit laborum consequatur tempora unde harum laudantium, temporibus amet officiis ipsam delectus, totam perferendis facere, eius nam magni dicta maxime quasi cum!`
+    )
   }
 
   /**

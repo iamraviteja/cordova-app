@@ -15,6 +15,7 @@ import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 import { Network } from '@ionic-native/network/ngx';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { TouchAuth } from './shared/touch-auth/touch-auth';
+import { PDFGenerator } from '@ionic-native/pdf-generator/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +39,7 @@ import { from } from 'rxjs';
     DocumentViewer,
     Network,
     TouchAuth,
+    PDFGenerator,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
