@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { ToastController, Platform } from '@ionic/angular';
 
 import { Diagnostic } from '@ionic-native/diagnostic/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
@@ -31,7 +31,8 @@ export class Tab1Page implements AfterViewInit {
     private emailComposer: EmailComposer,
     private transfer: FileTransfer,
     public file: File,
-    public downloadService:DownloadService
+    public downloadService:DownloadService,
+    public platform: Platform
   ) {}
 
   ngAfterViewInit(): void {
@@ -209,6 +210,11 @@ export class Tab1Page implements AfterViewInit {
     let isDownloadComplete;
 
     try {
+      let isPlatformReady = await this.platform.ready();
+      console.log(isPlatformReady);
+      let authStatus = await this.diagnostic.getExternalStorageAuthorizationStatus();
+      console.log(JSON.stringify(authStatus));
+      
       isAuthorized = await this.diagnostic.isExternalStorageAuthorized();
 
       this.showMessage('isAuthorized', isAuthorized);

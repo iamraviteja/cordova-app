@@ -42,4 +42,5 @@ export class AppComponent {
 }
 
 
-// distributionUrl=https://services.gradle.org/distributions/gradle-5.6.4-all.zip
+//export CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=https://services.gradle.org/distributions/gradle-5.6.4-all.zip
+// https\://services.gradle.org/distributions/gradle-6.1.1-all.zip

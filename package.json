@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-apk": "ionic cordova build android"
+    "build-apk": "ionic cordova build android",
+    "build-ipa": "ionic cordova build ios"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +28,7 @@
     "@ionic-native/email-composer": "^5.27.0",
     "@ionic-native/file": "^5.27.0",
     "@ionic-native/file-transfer": "^5.27.0",
+    "@ionic-native/firebase-crashlytics": "^5.28.0",
     "@ionic-native/health": "^5.27.0",
     "@ionic-native/network": "^5.27.0",
     "@ionic-native/pdf-generator": "^5.28.0",
@@ -47,8 +49,6 @@
     "cordova-plugin-inappbrowser": "^4.0.0",
     "cordova-plugin-network-information": "^2.0.2",
     "cordova-support-android-plugin": "^1.0.2",
-    "cordova.plugins.diagnostic": "^6.0.0",
-    "es6-promise-plugin": "git+https://github.com/vstirbu/PromisesPlugin.git",
     "needs": "^1.0.4",
     "ng2-pdf-viewer": "^6.3.2",
     "profile-image-crop": "0.0.5",
@@ -67,13 +67,19 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "cordova-ios": "^6.1.1",
     "cordova-pdf-generator": "^2.1.1",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-firebase-analytics": "^4.4.1",
+    "cordova-plugin-firebase-crashlytics": "^1.2.0",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-support-google-services": "^1.4.1",
+    "cordova.plugins.diagnostic": "^6.0.2",
+    "es6-promise-plugin": "git+https://github.com/vstirbu/PromisesPlugin.git",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~5.0.0",
@@ -105,9 +111,6 @@
       "cordova-android-support-gradle-release": {
         "ANDROID_SUPPORT_VERSION": "27.+"
       },
-      "cordova.plugins.diagnostic": {
-        "ANDROIDX_VERSION": "1.+"
-      },
       "cordova-support-android-plugin": {},
       "cordova-plugin-androidx": {},
       "cordova-plugin-androidx-adapter": {},
@@ -124,10 +127,12 @@
       "cordova-plugin-network-information": {},
       "cordova-plugin-android-fingerprint-auth": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-pdf-generator": {}
+      "cordova-pdf-generator": {},
+      "cordova.plugins.diagnostic": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }

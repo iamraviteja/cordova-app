@@ -13,9 +13,10 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { Health } from '@ionic-native/health/ngx';
 import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 import { Network } from '@ionic-native/network/ngx';
+import { PDFGenerator } from '@ionic-native/pdf-generator/ngx';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { TouchAuth } from './shared/touch-auth/touch-auth';
-import { PDFGenerator } from '@ionic-native/pdf-generator/ngx';
+import { DownloadService } from './shared/common/download.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { from } from 'rxjs';
     Network,
     TouchAuth,
     PDFGenerator,
+    DownloadService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
